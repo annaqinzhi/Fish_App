@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".onePersontestActivity" />
+        <activity android:name=".onePersonActivity" />
         <activity android:name=".twoPersonActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

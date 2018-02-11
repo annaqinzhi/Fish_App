@@ -1,29 +1,25 @@
 package com.example.annaqin.fiska;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-        import java.util.Random;
+import java.util.Random;
 
 public class onePersonActivity extends AppCompatActivity {
-
     ImageView b1, b2, b3, b4, b5, b6, b7, b8, b9;
-    int t1, t2, t3, t4, t5, t6, t7, t8, t9;
     TextView winnerMsg;
     Button playA;
-    //int turn;
-    int activePlayer;
     int point1;
     int point2;
-    boolean end;
-    int[] position = {t1, t2, t3, t4, t5, t6, t7, t8, t9};
+
     Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +35,11 @@ public class onePersonActivity extends AppCompatActivity {
         b8 = (ImageView) findViewById(R.id.imag8);
         b9 = (ImageView) findViewById(R.id.imag9);
 
-        t1 = Integer.parseInt(b1.getTag().toString());
-        t2 = Integer.parseInt(b2.getTag().toString());
-        t3 = Integer.parseInt(b3.getTag().toString());
-        t4 = Integer.parseInt(b4.getTag().toString());
-        t5 = Integer.parseInt(b5.getTag().toString());
-        t6 = Integer.parseInt(b6.getTag().toString());
-        t7 = Integer.parseInt(b7.getTag().toString());
-        t8 = Integer.parseInt(b8.getTag().toString());
-        t9 = Integer.parseInt(b9.getTag().toString());
-
         playA = (Button) findViewById(R.id.playA);
         winnerMsg = (TextView) findViewById(R.id.winnerMsg);
-        //turn = 1;
         point1 = 0;
         point2 = 0;
-        end = false;
-        activePlayer =1;
-        intent=getIntent();
-
+        intent = getIntent();
 
         LinearLayout winnerLayout = (LinearLayout) findViewById(R.id.winnerLayout);
         winnerLayout.setVisibility(View.INVISIBLE);
@@ -65,57 +47,32 @@ public class onePersonActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t1 == 1) {
-                    if (activePlayer == 1) {
-                        activePlayer=2;
-                        System.out.println("qinzhi");
-                        b1.setImageResource(R.drawable.blufish);
-                        b1.setTag(0);
-
-                        while (true) {
-                            computerPlay1();
-
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b1.setImageResource(R.drawable.redfish);
-                        b1.setTag(10);
-
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
-
+                int t = Integer.parseInt(b1.getTag().toString());
+                if (t == 1) {
+                    b1.setImageResource(R.drawable.blufish);
+                    b1.setTag(0);
                 }
-                endGame();
-
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
-
         });
+
 
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t2 == 2) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b2.setImageResource(R.drawable.blufish);
-                        activePlayer = 1;
-                        b2.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b2.setImageResource(R.drawable.redfish);
-                        b2.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
+                int t = Integer.parseInt(b2.getTag().toString());
+                if (t == 2) {
+                    b2.setImageResource(R.drawable.blufish);
+                    b2.setTag(0);
 
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
@@ -123,51 +80,34 @@ public class onePersonActivity extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t3 == 3) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b3.setImageResource(R.drawable.blufish);
-                        b3.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b3.setImageResource(R.drawable.redfish);
-                        b3.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
+                int t = Integer.parseInt(b3.getTag().toString());
+                if (t == 3) {
+                    b3.setImageResource(R.drawable.blufish);
+                    b3.setTag(0);
 
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
 
+
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t4 == 4) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b4.setImageResource(R.drawable.blufish);
-                        b4.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b4.setImageResource(R.drawable.redfish);
-                        b4.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
+                int t = Integer.parseInt(b4.getTag().toString());
+                if (t == 4) {
+                    b4.setImageResource(R.drawable.blufish);
+                    b4.setTag(0);
 
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
@@ -175,103 +115,65 @@ public class onePersonActivity extends AppCompatActivity {
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t5 == 5) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b5.setImageResource(R.drawable.blufish);
-                        b5.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b5.setImageResource(R.drawable.redfish);
-                        b5.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
-
+                int t = Integer.parseInt(b5.getTag().toString());
+                if (t == 5) {
+                    b5.setImageResource(R.drawable.blufish);
+                    b5.setTag(0);
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
 
+
         b6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t6 == 6) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b6.setImageResource(R.drawable.blufish);
-                        b6.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b6.setImageResource(R.drawable.redfish);
-                        b6.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
-
+                int t = Integer.parseInt(b6.getTag().toString());
+                if (t == 6) {
+                    b6.setImageResource(R.drawable.blufish);
+                    b6.setTag(0);
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
-
         });
 
         b7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t7 == 7) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b7.setImageResource(R.drawable.blufish);
-                        b7.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b7.setImageResource(R.drawable.redfish);
-                        b7.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
+                int t = Integer.parseInt(b7.getTag().toString());
+                if (t == 7) {
+                    b7.setImageResource(R.drawable.blufish);
+                    b7.setTag(0);
 
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
 
+
         b8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t8 == 8) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b8.setImageResource(R.drawable.blufish);
-                        b8.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b8.setImageResource(R.drawable.redfish);
-                        b8.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
-
+                int t = Integer.parseInt(b8.getTag().toString());
+                if (t == 8) {
+                    b8.setImageResource(R.drawable.blufish);
+                    b8.setTag(0);
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
@@ -279,25 +181,15 @@ public class onePersonActivity extends AppCompatActivity {
         b9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t9 == 9) {
-                    if (activePlayer == 1) {
-                        activePlayer = 2;
-                        b9.setImageResource(R.drawable.blufish);
-                        b9.setTag(0);
-                        while (true) {
-                            computerPlay1();
-                        }
-                    } else if (activePlayer == 2) {
-                        activePlayer = 1;
-                        b9.setImageResource(R.drawable.redfish);
-                        b9.setTag(10);
-                        while (true) {
-                            computerPlay2();
-                        }
-                    }
-
+                int t = Integer.parseInt(b9.getTag().toString());
+                if (t == 9) {
+                    b9.setImageResource(R.drawable.blufish);
+                    b9.setTag(0);
                 }
-                endGame();
+                if(!endGame()) {
+                    computerPlay1();
+                    endGame();
+                }
             }
 
         });
@@ -312,25 +204,33 @@ public class onePersonActivity extends AppCompatActivity {
     }
 
 
-    public void endGame() {
+    public boolean endGame() {
 
         if (ifWinner() == 0) {
             blueWinner();
+
+            return true;
+
         }
 
         if (ifWinner() == 10) {
             redWinner();
+
+            return true;
         }
 
-        if (ifWinner() == -1) {
-            if (fullBoard()) {
-                end = true;
-                String msgFull=getResources().getString(R.string.fullBoard);
+
+        if(fullBoard()){
+                String msgFull = getResources().getString(R.string.fullBoard);
                 winnerMsg.setText(msgFull);
+                end();
+                return true;
             }
-        }
 
-        if (end) {
+        return false;
+    }
+
+        public void end() {
             b1.setEnabled(false);
             b2.setEnabled(false);
             b3.setEnabled(false);
@@ -343,26 +243,47 @@ public class onePersonActivity extends AppCompatActivity {
             LinearLayout winnerLayout = (LinearLayout) findViewById(R.id.winnerLayout);
             winnerLayout.setVisibility(View.VISIBLE);
         }
-    }
-
 
     public void blueWinner() {
 
-        //Toast.makeText(MainActivity.this, "Winner Bluefish!", Toast.LENGTH_LONG).show();
-        end = true;
-        point1++;
+        point1 ++;
         String msgBlu = getResources().getString(R.string.winnerBlue) + point1;
         winnerMsg.setText(msgBlu);
+        end();
     }
 
     public void redWinner() {
-        //String msg="Winner Redfish!";
-        //winnerMsg.setText(msg);
-        //Toast.makeText(MainActivity.this, "Winner Redfish!", Toast.LENGTH_LONG).show();
-        end = true;
-        point2++;
-        String msgRed = getResources().getString(R.string.winnerRed)+ point2;
+        point2 ++;
+        String msgRed = getResources().getString(R.string.winnerRed) + point2;
         winnerMsg.setText(msgRed);
+        end();
+    }
+
+    public boolean fullBoard() {
+
+        int p1 = Integer.parseInt(b1.getTag().toString());
+        int p2 = Integer.parseInt(b2.getTag().toString());
+        int p3 = Integer.parseInt(b3.getTag().toString());
+        int p4 = Integer.parseInt(b4.getTag().toString());
+        int p5 = Integer.parseInt(b5.getTag().toString());
+        int p6 = Integer.parseInt(b6.getTag().toString());
+        int p7 = Integer.parseInt(b7.getTag().toString());
+        int p8 = Integer.parseInt(b8.getTag().toString());
+        int p9 = Integer.parseInt(b9.getTag().toString());
+        int x=0;
+
+        int[] position = {p1, p2, p3, p4, p5, p6, p7, p8, p9};
+
+        for (int i = 0; i < 9; i++)
+            if (position[i] == 0 || position[i] == 10){
+                x ++;
+            }
+
+        if (x==9) {
+            return true;
+        }
+
+        return false;
     }
 
     public void playAgain(View view) {
@@ -386,8 +307,8 @@ public class onePersonActivity extends AppCompatActivity {
         b7.setTag(7);
         b8.setTag(8);
         b9.setTag(9);
-        end = false;
-        activePlayer = 1;
+        //end = false;
+        //turn = 1;
         b1.setEnabled(true);
         b2.setEnabled(true);
         b3.setEnabled(true);
@@ -398,15 +319,6 @@ public class onePersonActivity extends AppCompatActivity {
         b8.setEnabled(true);
         b9.setEnabled(true);
 
-    }
-
-    public boolean fullBoard() {
-
-        for (int i = 0; i < 9; i++)
-            if (position[i] != 0 && position[i] != 10)
-                return false;
-
-        return true;
     }
 
 
@@ -475,102 +387,71 @@ public class onePersonActivity extends AppCompatActivity {
 
     public void computerPlay1() {
 
+        System.out.println("computerPlay1");
         Random ranComp = new Random();
-        int i = ranComp.nextInt(9);
-        System.out.println("hello");
-        if (position[i] != 0 && position[i] != 10) {
+        int i = ranComp.nextInt(9)+1;
             switch (i) {
-                case 0:
+                case 1:
+                    if(!b1.getTag().toString().equals("0")&&!b1.getTag().toString().equals("10")){
                     b1.setImageResource(R.drawable.redfish);
                     b1.setTag(10);
-                    break;
-                case 1:
-                    b2.setImageResource(R.drawable.redfish);
-                    b2.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 2:
-                    b3.setImageResource(R.drawable.redfish);
-                    b3.setTag(10);
+                    if(!b2.getTag().toString().equals("0")&&!b2.getTag().toString().equals("10")){
+                        b2.setImageResource(R.drawable.redfish);
+                        b2.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 3:
-                    b4.setImageResource(R.drawable.redfish);
-                    b4.setTag(10);
+                    if(!b3.getTag().toString().equals("0")&&!b3.getTag().toString().equals("10")){
+                        b3.setImageResource(R.drawable.redfish);
+                        b3.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 4:
-                    b5.setImageResource(R.drawable.redfish);
-                    b5.setTag(10);
+                    if(!b4.getTag().toString().equals("0")&&!b4.getTag().toString().equals("10")){
+                        b4.setImageResource(R.drawable.redfish);
+                        b4.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 5:
-                    b6.setImageResource(R.drawable.redfish);
-                    b6.setTag(10);
+                    if(!b5.getTag().toString().equals("0")&&!b5.getTag().toString().equals("10")){
+                        b5.setImageResource(R.drawable.redfish);
+                        b5.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 6:
-                    b7.setImageResource(R.drawable.redfish);
-                    b7.setTag(10);
+                    if(!b6.getTag().toString().equals("0")&&!b6.getTag().toString().equals("10")){
+                        b6.setImageResource(R.drawable.redfish);
+                        b6.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 7:
-                    b8.setImageResource(R.drawable.redfish);
-                    b8.setTag(10);
+                    if(!b7.getTag().toString().equals("0")&&!b7.getTag().toString().equals("10")){
+                        b7.setImageResource(R.drawable.redfish);
+                        b7.setTag(10);
+                    }else {computerPlay1();}
                     break;
                 case 8:
-                    b9.setImageResource(R.drawable.redfish);
-                    b9.setTag(10);
+                    if(!b8.getTag().toString().equals("0")&&!b8.getTag().toString().equals("10")){
+                        b8.setImageResource(R.drawable.redfish);
+                        b8.setTag(10);
+                    }else {computerPlay1();}
                     break;
+                case 9:
+                    if(!b9.getTag().toString().equals("0")&&!b9.getTag().toString().equals("10")){
+                        b9.setImageResource(R.drawable.redfish);
+                        b9.setTag(10);
+                    }else {computerPlay1();}
+                    break;
+
                 default:
             }
         }
+
     }
 
-    public void computerPlay2() {
-
-        Random ranComp = new Random();
-        int i = ranComp.nextInt(9);
-        System.out.println(i);
-        if (position[i] != 0 && position[i] != 10) {
-            switch (i) {
-                case 0:
-                    b1.setImageResource(R.drawable.blufish);
-                    b1.setTag(0);
-                    break;
-                case 1:
-                    b2.setImageResource(R.drawable.blufish);
-                    b2.setTag(0);
-                    break;
-                case 2:
-                    b3.setImageResource(R.drawable.blufish);
-                    b3.setTag(0);
-                    break;
-                case 3:
-                    b4.setImageResource(R.drawable.blufish);
-                    b4.setTag(0);
-                    break;
-                case 4:
-                    b5.setImageResource(R.drawable.blufish);
-                    b5.setTag(0);
-                    break;
-                case 5:
-                    b6.setImageResource(R.drawable.blufish);
-                    b6.setTag(0);
-                    break;
-                case 6:
-                    b7.setImageResource(R.drawable.blufish);
-                    b7.setTag(0);
-                    break;
-                case 7:
-                    b8.setImageResource(R.drawable.blufish);
-                    b8.setTag(0);
-                    break;
-                case 8:
-                    b9.setImageResource(R.drawable.blufish);
-                    b9.setTag(0);
-                    break;
-                default:
-
-            }
-
-        }
-    }
-}
 
 
 
