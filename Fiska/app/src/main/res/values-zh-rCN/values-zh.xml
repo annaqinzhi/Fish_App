@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Play_again">再玩一次</string>
+    <string name="onePlayer">一个人玩</string>
+    <string name="twoPlayers">两个人玩</string>
+    <string name="winnerBlue">蓝鱼赢了！积分: </string>
+    <string name="winnerRed">红鱼赢了！积分: </string>
+    <string name="fullBoard">平局！</string>
+</resources>

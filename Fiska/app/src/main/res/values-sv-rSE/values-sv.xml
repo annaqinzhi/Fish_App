@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Play_again">Spela igen</string>
+    <string name="onePlayer">1 spelare</string>
+    <string name="twoPlayers">2 spelare</string>
+    <string name="winnerBlue">Vinnare Blåfisk! Poäng: </string>
+    <string name="winnerRed">Vinnare Rödfisk! Poäng: </string>
+    <string name="fullBoard">Full Board. Oavgjort!</string>
+</resources>
