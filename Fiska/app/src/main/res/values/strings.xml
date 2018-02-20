@@ -3,7 +3,7 @@
     <string name="Play_again">Play again</string>
     <string name="onePlayer">One player</string>
     <string name="twoPlayers">Two player</string>
-    <string name="winnerRed">Winner Red fish! Point: </string>
+    <string name="winnerRed">Winner is Red fish! Point: </string>
     <string name="fullBoard">Full Board. Draw!</string>
-    <string name="winnerBlue">Winner Blue fish! Point: </string>
+    <string name="winnerBlue">Winner is Blue fish! Point: </string>
 </resources>
